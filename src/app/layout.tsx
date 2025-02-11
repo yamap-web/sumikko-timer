@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "P in P Timer",
-  description: "Picture in Picture機能でご利用いただけるタイマーです。",
+  title: "すみっこタイマー",
+  description: "画面のすみっこで時間を測ってくれる優しい子です。",
 };
 
 export default function RootLayout({
