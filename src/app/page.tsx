@@ -23,13 +23,16 @@ export default function Home() {
             Close
           </button>
         </div>
-        {pipWindow && (
+        {pipWindow ? (
           <PictureInPictureWindow pipWindow={pipWindow}>
             <div>
               <p>タイマー</p>
-              <button className="btn btn-primary">ボタン</button>
             </div>
           </PictureInPictureWindow>
+        ) : (
+          <div>
+            <p>タイマー</p>
+          </div>
         )}
       </main>
     </div>
