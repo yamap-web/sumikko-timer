@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 
-export function usePictureInPicture({ width = 300, height = 300 }) {
+export function usePictureInPicture({ width = 500, height = 500 }) {
   const [pipWindow, setPipWindow] = useState<Window | null>(null);
   const isSupported =
     typeof window !== 'undefined' && 'documentPictureInPicture' in window;
@@ -17,7 +17,7 @@ export function usePictureInPicture({ width = 300, height = 300 }) {
     const newPipWindow = await window.documentPictureInPicture?.requestWindow({
       disallowReturnToOpener: false,
       height: height,
-      preferInitialWindowPlacement: false,
+      preferInitialWindowPlacement: true,
       width: width,
     });
 
