@@ -4,6 +4,7 @@ import { Timer } from '@/components/Timer';
 import PictureInPictureWindow, {
   usePictureInPicture,
 } from '@/hooks/usePictureInPicture';
+import { useTimer } from '@/hooks/useTimer';
 
 export default function Home() {
   const { handleOpenPipWindow, handleClosePipWindow, pipWindow } =
@@ -11,6 +12,8 @@ export default function Home() {
       width: 400,
       height: 300,
     });
+
+  const { isRunning, handleStart, handleStop, handleReset } = useTimer();
 
   return (
     <div className="grid items-center justify-items-center min-h-screen font-[family-name:var(--font-geist-sans)]">
@@ -27,13 +30,14 @@ export default function Home() {
           </button>
         </div>
         <div className=" border rounded-lg">
-          {pipWindow ? (
-            <PictureInPictureWindow pipWindow={pipWindow}>
-              <Timer />
-            </PictureInPictureWindow>
-          ) : (
-            <Timer />
-          )}
+          <PictureInPictureWindow pipWindow={pipWindow}>
+            <Timer
+              isRunning={isRunning}
+              handleStart={handleStart}
+              handleStop={handleStop}
+              handleReset={handleReset}
+            />
+          </PictureInPictureWindow>
         </div>
       </main>
     </div>

@@ -60,7 +60,7 @@ export function usePictureInPicture({ width = 500, height = 500 }) {
 }
 
 type PictureInPictureWindowProps = {
-  pipWindow: Window;
+  pipWindow: Window | null;
   children: React.ReactNode;
 };
 
@@ -68,5 +68,8 @@ export default function PictureInPictureWindow({
   pipWindow,
   children,
 }: PictureInPictureWindowProps) {
-  return createPortal(children, pipWindow.document.body);
+  if (pipWindow) {
+    return createPortal(children, pipWindow.document.body);
+  }
+  return <>{children}</>;
 }
