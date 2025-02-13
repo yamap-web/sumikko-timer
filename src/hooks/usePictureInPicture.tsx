@@ -6,11 +6,15 @@ export function usePictureInPicture({ width = 500, height = 500 }) {
   const isSupported =
     typeof window !== 'undefined' && 'documentPictureInPicture' in window;
 
+  // TODO: 環境変数に設定して管理する
+  const browserCompatibility = 'Chrome 116~, Edge 116~, Opera 102~';
+  const pointInTime = '2025年2月';
+
+  const alertMessage = `このブラウザは Document Picture in Picture API をサポートしていません。${browserCompatibility}をお試しください。（${pointInTime}時点）`;
+
   async function handleOpenPipWindow() {
     if (!isSupported) {
-      alert(
-        'このブラウザは Document Picture in Picture API をサポートしていません。'
-      );
+      alert(alertMessage);
       return;
     }
 
@@ -64,12 +68,14 @@ type PictureInPictureWindowProps = {
   children: React.ReactNode;
 };
 
+// Picture in Picture Windowの状態変数と子要素を受け取って、ウィンドウが開かれている場合は子要素をポータルで描画するが、開かれていない場合はそのまま子要素を描画する
 export default function PictureInPictureWindow({
   pipWindow,
   children,
 }: PictureInPictureWindowProps) {
-  if (pipWindow) {
-    return createPortal(children, pipWindow.document.body);
-  }
-  return <>{children}</>;
+  return pipWindow ? (
+    createPortal(children, pipWindow.document.body)
+  ) : (
+    <>{children}</>
+  );
 }

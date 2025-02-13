@@ -1,26 +1,33 @@
 type TimerProps = {
+  timeLeft: number;
   isRunning: boolean;
-  handleStart: () => void;
-  handleStop: () => void;
-  handleReset: () => void;
+  onToggleTimer: (toggle: string) => void;
+  onReset: () => void;
+  addTime: (seconds: number) => void;
 };
 
 export function Timer({
+  timeLeft,
   isRunning,
-  handleStart,
-  handleStop,
-  handleReset,
+  onToggleTimer,
+  onReset,
+  addTime,
 }: TimerProps) {
-  function formatTime() {
-    return `05:00`;
+  function formatTime(seconds: number): string {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
   }
 
   return (
     <div className="grid justify-items-center p-6">
-      <p className="text-9xl">{formatTime()}</p>
+      <p className="text-9xl">{formatTime(timeLeft)}</p>
       <div className="mt-2 space-x-2 w-full grid grid-cols-2">
         {!isRunning ? (
-          <button className="btn btn-primary" onClick={handleStart}>
+          <button
+            className="btn btn-primary"
+            onClick={() => onToggleTimer('start')}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -38,7 +45,10 @@ export function Timer({
             スタート
           </button>
         ) : (
-          <button className="btn btn-outline btn-primary" onClick={handleStop}>
+          <button
+            className="btn btn-outline btn-primary"
+            onClick={() => onToggleTimer('stop')}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -56,7 +66,7 @@ export function Timer({
             ストップ
           </button>
         )}
-        <button className="btn btn-neutral" onClick={handleReset}>
+        <button className="btn btn-neutral" onClick={onReset}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -71,15 +81,34 @@ export function Timer({
               d="m15 15 6-6m0 0-6-6m6 6H9a6 6 0 0 0 0 12h3"
             />
           </svg>
-          もどす
+          ０にもどす
         </button>
       </div>
       <div className="mt-5 space-x-2 grid grid-cols-5 w-full">
-        <button className="btn btn-outline btn-sm">+10:00</button>
-        <button className="btn btn-outline btn-sm">+5:00</button>
-        <button className="btn btn-outline btn-sm">+3:00</button>
-        <button className="btn btn-outline btn-sm">+1:00</button>
-        <button className="btn btn-outline btn-sm">+0:30</button>
+        <button
+          className="btn btn-outline btn-sm"
+          onClick={() => addTime(10 * 60)}
+        >
+          +10:00
+        </button>
+        <button
+          className="btn btn-outline btn-sm"
+          onClick={() => addTime(5 * 60)}
+        >
+          +5:00
+        </button>
+        <button
+          className="btn btn-outline btn-sm"
+          onClick={() => addTime(3 * 60)}
+        >
+          +3:00
+        </button>
+        <button className="btn btn-outline btn-sm" onClick={() => addTime(60)}>
+          +1:00
+        </button>
+        <button className="btn btn-outline btn-sm" onClick={() => addTime(30)}>
+          +0:30
+        </button>
       </div>
     </div>
   );

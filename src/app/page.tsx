@@ -13,7 +13,8 @@ export default function Home() {
       height: 300,
     });
 
-  const { isRunning, handleStart, handleStop, handleReset } = useTimer();
+  const { timeLeft, isRunning, handleToggleTimer, handleReset, addTime } =
+    useTimer();
 
   return (
     <div className="grid items-center justify-items-center min-h-screen font-[family-name:var(--font-geist-sans)]">
@@ -29,13 +30,14 @@ export default function Home() {
             Close
           </button>
         </div>
-        <div className=" border rounded-lg">
+        <div className="border rounded-lg">
           <PictureInPictureWindow pipWindow={pipWindow}>
             <Timer
+              timeLeft={timeLeft}
               isRunning={isRunning}
-              handleStart={handleStart}
-              handleStop={handleStop}
-              handleReset={handleReset}
+              onToggleTimer={handleToggleTimer}
+              onReset={handleReset}
+              addTime={addTime}
             />
           </PictureInPictureWindow>
         </div>
