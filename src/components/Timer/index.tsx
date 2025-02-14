@@ -20,7 +20,7 @@ export function Timer({
   }
 
   return (
-    <div className="grid justify-items-center p-6">
+    <div className="font-roboto grid justify-items-center p-6">
       <p className="text-9xl">{formatTime(timeLeft)}</p>
       <div className="mt-2 space-x-2 w-full grid grid-cols-2">
         {!isRunning ? (
@@ -66,7 +66,7 @@ export function Timer({
             ストップ
           </button>
         )}
-        <button className="btn btn-neutral" onClick={onReset}>
+        <button className="btn btn-outline btn-secondary" onClick={onReset}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

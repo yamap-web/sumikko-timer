@@ -32,7 +32,7 @@ export default function Home() {
             </button>
           )}
         </div>
-        <div className="border rounded-lg h-72 w-[440px]" ref={containerRef}>
+        <div className="rounded-lg h-72 w-[400px] border shadow-lg" ref={containerRef}>
           <PictureInPictureWindow pipWindow={pipWindow}>
             <Timer
               timeLeft={timeLeft}

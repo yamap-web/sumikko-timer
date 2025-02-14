@@ -1,14 +1,15 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Roboto, Kiwi_Maru } from 'next/font/google';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const roboto = Roboto({
+  weight: '400',
+  variable: '--font-roboto',
   subsets: ['latin'],
 });
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const kiwiMaru = Kiwi_Maru({
+  weight: '400',
+  variable: '--font-kiwiMaru',
   subsets: ['latin'],
 });
 
@@ -23,9 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html lang="ja" data-theme="synthwave">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${roboto.variable} ${kiwiMaru.variable} font-kiwiMaru antialiased`}
       >
         {children}
       </body>

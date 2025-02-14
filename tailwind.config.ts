@@ -14,6 +14,13 @@ export default {
         foreground: 'var(--foreground)',
       },
     },
+    fontFamily: {
+      roboto: ['var(--font-roboto)'],
+      kiwiMaru: ['var(--font-kiwiMaru)'],
+    },
   },
   plugins: [daisyui],
+  daisyui: {
+    themes: ['synthwave'],
+  },
 } satisfies Config;

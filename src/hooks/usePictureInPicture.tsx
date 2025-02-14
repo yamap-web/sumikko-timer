@@ -60,6 +60,10 @@ export function usePictureInPicture({
         newPipWindow.document.head.appendChild(linkElm);
       }
     });
+
+    newPipWindow.document.documentElement.className =
+      document.documentElement.className;
+    newPipWindow.document.body.className = document.body.className;
   }
 
   function handleClosePipWindow() {
