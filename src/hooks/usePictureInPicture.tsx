@@ -1,7 +1,14 @@
 import { useState } from 'react';
+import type { RefObject } from 'react';
 import { createPortal } from 'react-dom';
 
-export function usePictureInPicture({ width = 500, height = 500 }) {
+type UsePictureInPictureProps = {
+  containerRef: RefObject<HTMLDivElement | null>;
+};
+
+export function usePictureInPicture({
+  containerRef,
+}: UsePictureInPictureProps) {
   const [pipWindow, setPipWindow] = useState<Window | null>(null);
   const isSupported =
     typeof window !== 'undefined' && 'documentPictureInPicture' in window;
@@ -20,9 +27,9 @@ export function usePictureInPicture({ width = 500, height = 500 }) {
 
     const newPipWindow = await window.documentPictureInPicture?.requestWindow({
       disallowReturnToOpener: false,
-      height: height,
+      height: containerRef.current?.clientHeight,
       preferInitialWindowPlacement: true,
-      width: width,
+      width: containerRef.current?.clientWidth,
     });
 
     if (!newPipWindow) return;

@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef } from 'react';
 import { Timer } from '@/components/Timer';
 import PictureInPictureWindow, {
   usePictureInPicture,
@@ -7,11 +8,9 @@ import PictureInPictureWindow, {
 import { useTimer } from '@/hooks/useTimer';
 
 export default function Home() {
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const { handleOpenPipWindow, handleClosePipWindow, pipWindow } =
-    usePictureInPicture({
-      width: 400,
-      height: 300,
-    });
+    usePictureInPicture({ containerRef });
 
   const { timeLeft, isRunning, handleToggleTimer, handleReset, addTime } =
     useTimer();
@@ -23,14 +22,17 @@ export default function Home() {
           すみっこタイマー
         </h1>
         <div className="flex space-x-2 mb-3">
-          <button className="btn" onClick={handleOpenPipWindow}>
-            Open
-          </button>
-          <button className="btn" onClick={handleClosePipWindow}>
-            Close
-          </button>
+          {!pipWindow ? (
+            <button className="btn btn-link" onClick={handleOpenPipWindow}>
+              画面のすみっこへGo!
+            </button>
+          ) : (
+            <button className="btn btn-link" onClick={handleClosePipWindow}>
+              もどって来ていいよ!
+            </button>
+          )}
         </div>
-        <div className="border rounded-lg">
+        <div className="border rounded-lg h-72 w-[440px]" ref={containerRef}>
           <PictureInPictureWindow pipWindow={pipWindow}>
             <Timer
               timeLeft={timeLeft}
