@@ -1,7 +1,8 @@
 type TimerProps = {
   timeLeft: number;
   isRunning: boolean;
-  onToggleTimer: (toggle: string) => void;
+  onStart: () => void;
+  onStop: () => void;
   onReset: () => void;
   addTime: (seconds: number) => void;
 };
@@ -9,7 +10,8 @@ type TimerProps = {
 export function Timer({
   timeLeft,
   isRunning,
-  onToggleTimer,
+  onStart,
+  onStop,
   onReset,
   addTime,
 }: TimerProps) {
@@ -24,10 +26,7 @@ export function Timer({
       <p className="text-9xl">{formatTime(timeLeft)}</p>
       <div className="mt-2 space-x-2 w-full grid grid-cols-2">
         {!isRunning ? (
-          <button
-            className="btn btn-primary"
-            onClick={() => onToggleTimer('start')}
-          >
+          <button className="btn btn-primary" onClick={() => onStart()}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -47,7 +46,7 @@ export function Timer({
         ) : (
           <button
             className="btn btn-outline btn-primary"
-            onClick={() => onToggleTimer('stop')}
+            onClick={() => onStop()}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

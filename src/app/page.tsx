@@ -12,7 +12,7 @@ export default function Home() {
   const { handleOpenPipWindow, handleClosePipWindow, pipWindow } =
     usePictureInPicture({ containerRef });
 
-  const { timeLeft, isRunning, handleToggleTimer, handleReset, addTime } =
+  const { timeLeft, isRunning, handleStart, handleStop, handleReset, addTime } =
     useTimer();
 
   return (
@@ -32,12 +32,16 @@ export default function Home() {
             </button>
           )}
         </div>
-        <div className="rounded-lg h-72 w-[400px] border shadow-lg" ref={containerRef}>
+        <div
+          className="rounded-lg h-72 w-[400px] border shadow-lg"
+          ref={containerRef}
+        >
           <PictureInPictureWindow pipWindow={pipWindow}>
             <Timer
               timeLeft={timeLeft}
               isRunning={isRunning}
-              onToggleTimer={handleToggleTimer}
+              onStart={handleStart}
+              onStop={handleStop}
               onReset={handleReset}
               addTime={addTime}
             />
