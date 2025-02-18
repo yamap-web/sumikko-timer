@@ -1,11 +1,11 @@
 'use client';
 
 import { useRef } from 'react';
-import { Timer } from '@/components/Timer';
 import PictureInPictureWindow, {
   usePictureInPicture,
 } from '@/hooks/usePictureInPicture';
 import { useTimer } from '@/hooks/useTimer';
+import { Timer } from '@/components/Timer';
 import { Footer } from '@/components/Footer';
 
 export default function Home() {
@@ -19,23 +19,20 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[1fr,auto] min-h-screen">
       <main className="grid items-center justify-items-center font-[family-name:var(--font-geist-sans)]">
-        <div>
-          <h1 className="font-bold text-5xl mb-4 text-center">
+        <div className='p-4'>
+          <h1 className="font-bold text-4xl sm:text-5xl mb-4 text-center">
             すみっこタイマー
           </h1>
           <div className="flex space-x-2 mb-3">
-            {!pipWindow ? (
-              <button className="btn btn-link" onClick={handleOpenPipWindow}>
-                画面のすみっこへGo!
-              </button>
-            ) : (
-              <button className="btn btn-link" onClick={handleClosePipWindow}>
-                もどって来ていいよ!
-              </button>
-            )}
+            <button
+              className="btn btn-link"
+              onClick={pipWindow ? handleClosePipWindow : handleOpenPipWindow}
+            >
+              {pipWindow ? 'もどって来ていいよ!' : '画面のすみっこへGo!'}
+            </button>
           </div>
           <div
-            className="rounded-lg h-72 w-[400px] border shadow-lg"
+            className="rounded-lg sm:h-72 sm:w-[400px] border shadow-lg"
             ref={containerRef}
           >
             <PictureInPictureWindow pipWindow={pipWindow}>
