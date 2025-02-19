@@ -1,7 +1,13 @@
 export function Footer() {
   return (
     <footer className="text-white text-center p-4">
-      <small>&copy; 2025 やまぴー from &quot;ZeroPlus&quot;</small>
+      <small>
+        &copy;&nbsp;2025&nbsp;
+        <a href="https://x.com/yamap_web" target="_blank">
+          やまぴー
+        </a>
+        &nbsp;from &quot;ZeroPlus&quot;
+      </small>
     </footer>
   );
 }
