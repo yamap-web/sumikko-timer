@@ -6,7 +6,7 @@ export function StartIcon() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-4 sm:size-6"
+      className="size-6"
     >
       <path
         strokeLinecap="round"
@@ -25,7 +25,7 @@ export function StopIcon() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-4 sm:size-6"
+      className="size-6"
     >
       <path
         strokeLinecap="round"
@@ -44,7 +44,7 @@ export function ResetIcon() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-4 sm:size-6 rotate-180"
+      className="size-6 rotate-180"
     >
       <path
         strokeLinecap="round"

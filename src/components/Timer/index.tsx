@@ -35,17 +35,17 @@ export function Timer({
 
   return (
     <div className="font-roboto grid justify-items-center p-6">
-      <p className="text-8xl sm:text-9xl">{formattedTimeLeftText}</p>
+      <p className="text-9xl">{formattedTimeLeftText}</p>
       <div className="mt-2 space-x-2 w-full grid grid-cols-2">
         <button
-          className={`text-xs btn btn-primary ${isRunning && 'btn-outline'}`}
+          className={`btn btn-primary ${isRunning && 'btn-outline'}`}
           onClick={() => (isRunning ? onStop() : onStart())}
         >
           {isRunning ? <StopIcon /> : <StartIcon />}
           {isRunning ? 'ストップ' : 'スタート'}
         </button>
         <button
-          className="text-xs btn btn-outline btn-secondary"
+          className="btn btn-outline btn-secondary"
           onClick={onReset}
         >
           <ResetIcon />

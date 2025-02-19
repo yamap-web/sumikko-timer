@@ -19,11 +19,11 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[1fr,auto] min-h-screen">
       <main className="grid items-center justify-items-center font-[family-name:var(--font-geist-sans)]">
-        <div className='p-4'>
+        <div>
           <h1 className="font-bold text-4xl sm:text-5xl mb-4 text-center">
             すみっこタイマー
           </h1>
-          <div className="flex space-x-2 mb-3">
+          <div className="text-center sm:text-start">
             <button
               className="btn btn-link"
               onClick={pipWindow ? handleClosePipWindow : handleOpenPipWindow}
@@ -32,7 +32,7 @@ export default function Home() {
             </button>
           </div>
           <div
-            className="rounded-lg sm:h-72 sm:w-[400px] border shadow-lg"
+            className="rounded-lg sm:h-72 sm:w-[400px] sm:border sm:shadow-lg"
             ref={containerRef}
           >
             <PictureInPictureWindow pipWindow={pipWindow}>
