@@ -16,6 +16,32 @@ const kiwiMaru = Kiwi_Maru({
 export const metadata: Metadata = {
   title: 'すみっこタイマー',
   description: '画面のすみっこで時間を測ってくれる優しい子です。',
+  openGraph: {
+    title: 'すみっこタイマー',
+    description: '画面のすみっこで時間を測ってくれる優しい子です。',
+    type: 'website',
+    locale: 'ja_JP',
+    url: 'https://sumikko-timer.vercel.app',
+    siteName: 'すみっこタイマー',
+    images: {
+      url: '/ogp.png',
+      type: 'image/png',
+      width: 1200,
+      height: 630,
+    },
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@yamap_web',
+    title: 'すみっこタイマー',
+    description: '画面のすみっこで時間を測ってくれる優しい子です。',
+    images: {
+      url: '/ogp.png',
+      type: 'image/png',
+      width: 1200,
+      height: 630,
+    },
+  },
 };
 
 export default function RootLayout({
