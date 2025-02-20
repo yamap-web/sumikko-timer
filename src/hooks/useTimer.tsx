@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 export function useTimer() {
-  const [timeLeft, setTimeLeft] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(300);
   const [isRunning, setIsRunning] = useState(false);
 
   const timerRef = useRef<NodeJS.Timeout | null>(null);

@@ -32,20 +32,27 @@ export function Timer({
   }
 
   const formattedTimeLeftText = formatTime(timeLeft);
+  const isNoTimeLeft = timeLeft === 0;
 
   return (
     <div className="font-roboto grid justify-items-center p-6">
       <p className="text-9xl">{formattedTimeLeftText}</p>
       <div className="mt-2 space-x-2 w-full grid grid-cols-2">
         <button
-          className={`btn btn-primary ${isRunning && 'btn-outline'}`}
+          className={`btn btn-primary ${
+            (isRunning || isNoTimeLeft) && 'btn-outline'
+          } ${isNoTimeLeft && 'btn-disabled'}`}
+          disabled={isNoTimeLeft}
           onClick={() => (isRunning ? onStop() : onStart())}
         >
           {isRunning ? <StopIcon /> : <StartIcon />}
           {isRunning ? 'ストップ' : 'スタート'}
         </button>
         <button
-          className="btn btn-outline btn-secondary"
+          className={`btn btn-outline btn-secondary ${
+            isNoTimeLeft && 'btn-disabled'
+          }`}
+          disabled={isNoTimeLeft}
           onClick={onReset}
         >
           <ResetIcon />
