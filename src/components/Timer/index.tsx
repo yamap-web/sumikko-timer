@@ -32,7 +32,9 @@ export function Timer({
   }
 
   const formattedTimeLeftText = formatTime(timeLeft);
+
   const isNoTimeLeft = timeLeft === 0;
+  const isFullTimeLeft = timeLeft === 60 * 100 - 1;
 
   return (
     <div className="font-roboto grid justify-items-center p-6">
@@ -63,7 +65,9 @@ export function Timer({
         {frequentlyUsedTimers.map(({ seconds, text }) => (
           <button
             key={text}
-            className="btn btn-outline btn-sm"
+            className={`btn btn-outline btn-sm ${
+              isFullTimeLeft && 'btn-disabled'
+            }`}
             onClick={() => addTime(seconds)}
           >
             {text}

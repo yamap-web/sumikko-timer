@@ -62,7 +62,7 @@ export function useTimer() {
   function addTime(seconds: number) {
     setTimeLeft((prevValue) => {
       let newValue = prevValue + seconds;
-      if (newValue >= 6000) newValue = 5999;
+      if (newValue >= 60 * 100) newValue = 60 * 100 - 1;
       if (newValue < 0) newValue = 0;
 
       return newValue;
