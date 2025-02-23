@@ -19,7 +19,7 @@ export default function Home() {
     if (isSupported) {
       setAutoPip(true);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { timeLeft, isRunning, handleStart, handleStop, handleReset, addTime } =
@@ -40,11 +40,12 @@ export default function Home() {
             すみっこタイマー
           </h1>
           <div className="hidden sm:flex flex-col items-center justify-center border border-dashed rounded-lg pt-1 pb-3 mb-6">
-            <div className="form-control">
-              <label className="label cursor-pointer gap-4">
+            <div className="form-control w-80">
+              <label className="label cursor-pointer">
                 <span className="label-text text-base font-bold">
                   自動すみっこスタート機能
                 </span>
+                {autoPip ? <span className='font-bold text-accent'>ON</span> : <span className=''>OFF</span>}
                 <input
                   type="checkbox"
                   className="toggle toggle-accent"
