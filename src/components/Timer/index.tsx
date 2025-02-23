@@ -37,7 +37,7 @@ export function Timer({
   const isFullTimeLeft = timeLeft === 60 * 100 - 1;
 
   return (
-    <div className="font-roboto grid justify-items-center p-6">
+    <div className="font-roboto grid justify-items-center px-6 py-5">
       <p className="text-9xl">{formattedTimeLeftText}</p>
       <div className="mt-2 space-x-2 w-full grid grid-cols-2">
         <button

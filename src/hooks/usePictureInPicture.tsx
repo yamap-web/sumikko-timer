@@ -71,7 +71,7 @@ export function usePictureInPicture({
     setPipWindow(null);
   }
 
-  return { handleOpenPipWindow, handleClosePipWindow, pipWindow };
+  return { isSupported, handleOpenPipWindow, handleClosePipWindow, pipWindow };
 }
 
 type PictureInPictureWindowProps = {
