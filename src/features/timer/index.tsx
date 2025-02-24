@@ -1,4 +1,4 @@
-import { ResetIcon, StartIcon, StopIcon } from './Icons';
+import { ResetIcon, StartIcon, StopIcon } from './components/Icons';
 
 type TimerProps = {
   timeLeft: number;

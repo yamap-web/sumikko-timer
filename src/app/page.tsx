@@ -5,8 +5,8 @@ import PictureInPictureWindow, {
   usePictureInPicture,
 } from '@/hooks/usePictureInPicture';
 import { useTimer } from '@/hooks/useTimer';
-import { Timer } from '@/components/Timer';
-import { Footer } from '@/components/Footer';
+import { Timer } from '@/features/timer';
+import { Header, Footer } from '@/components/layouts';
 
 export default function Home() {
   const [autoPip, setAutoPip] = useState(false);
@@ -33,7 +33,9 @@ export default function Home() {
   }
 
   return (
-    <div className="grid grid-rows-[1fr,auto] min-h-screen">
+    <div className="grid grid-rows-[auto,1fr,auto] min-h-screen">
+      <Header />
+
       <main className="grid items-center justify-items-center font-[family-name:var(--font-geist-sans)]">
         <div>
           <h1 className="font-bold text-4xl sm:text-5xl mb-6 text-center">
@@ -45,10 +47,14 @@ export default function Home() {
                 <span className="label-text text-base font-bold">
                   自動すみっこスタート機能
                 </span>
-                {autoPip ? <span className='font-bold text-accent'>ON</span> : <span className=''>OFF</span>}
+                {autoPip ? (
+                  <span className="font-bold text-primary">ON</span>
+                ) : (
+                  <span className="">OFF</span>
+                )}
                 <input
                   type="checkbox"
-                  className="toggle toggle-accent"
+                  className="toggle toggle-primary"
                   checked={autoPip}
                   onChange={(e) => setAutoPip(e.target.checked)}
                 />
