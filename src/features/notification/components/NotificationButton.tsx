@@ -1,14 +1,22 @@
+import { useState } from 'react';
 import { Modal } from '@/components/elements';
 
 function NotificationButton() {
+  const [checked, setChecked] = useState(false);
+  function onModalOpen() {
+    setChecked(true);
+    Modal.handleOpenModal('notification-modal');
+  }
+
   return (
-    <button
-      className="btn btn-ghost btn-circle"
-      onClick={() => Modal.handleOpenModal('notification-modal')}
-    >
+    <button className="btn btn-ghost btn-circle" onClick={onModalOpen}>
       <div className="indicator">
         <NotificationIcon />
-        <span className="badge badge-xs badge-primary indicator-item"></span>
+        {checked ? (
+          ''
+        ) : (
+          <span className="badge badge-xs badge-primary indicator-item"></span>
+        )}
       </div>
     </button>
   );
