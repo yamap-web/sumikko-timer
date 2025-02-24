@@ -1,10 +1,11 @@
-type NotificationButtonProps = {
-  onModalOpen: () => void;
-};
+import { handleOpenModal } from '@/components/elements/Modal';
 
-function NotificationButton({ onModalOpen }: NotificationButtonProps) {
+function NotificationButton() {
   return (
-    <button className="btn btn-ghost btn-circle" onClick={onModalOpen}>
+    <button
+      className="btn btn-ghost btn-circle"
+      onClick={() => handleOpenModal('notification-modal')}
+    >
       <div className="indicator">
         <NotificationIcon />
         <span className="badge badge-xs badge-primary indicator-item"></span>

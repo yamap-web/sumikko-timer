@@ -18,7 +18,7 @@ export function NotificationModal() {
   const newRelease = releaseNotes[releaseNotes.length - 1];
 
   return (
-    <Modal>
+    <Modal modalId='notification-modal'>
       <hgroup>
         <p>お知らせ</p>
         <h2 className="font-bold text-lg py-4">

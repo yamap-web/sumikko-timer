@@ -1,11 +1,8 @@
+'use client';
+
 import * as Notification from '@/features/notification';
 
 export function Header() {
-  function handleOpenModal() {
-    const modalElement = document.getElementById('modal') as HTMLDialogElement;
-    modalElement.showModal();
-  }
-
   return (
     <header className="navbar bg-slate-500 px-4">
       <div className="navbar-start">
@@ -14,7 +11,7 @@ export function Header() {
         </p>
       </div>
       <div className="navbar-end">
-        <Notification.Button onModalOpen={handleOpenModal} />
+        <Notification.Button />
         <Notification.Modal />
       </div>
     </header>
