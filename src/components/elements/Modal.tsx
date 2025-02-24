@@ -1,11 +1,9 @@
-import { handleOpenModal } from './functions';
-
 type ModalProps = {
   modalId: string;
   children: React.ReactNode;
 };
 
-function Modal({ modalId, children }: ModalProps) {
+export function Modal({ modalId, children }: ModalProps) {
   return (
     <dialog id={modalId} className="modal">
       <div className="modal-box bg-slate-500">
@@ -23,4 +21,7 @@ function Modal({ modalId, children }: ModalProps) {
   );
 }
 
-export { Modal, handleOpenModal };
+export function handleOpenModal(modalId: string) {
+  const modalElement = document.getElementById(modalId) as HTMLDialogElement;
+  modalElement.showModal();
+}
