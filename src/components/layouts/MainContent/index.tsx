@@ -50,6 +50,7 @@ export function MainContent() {
               )}
               <input
                 type="checkbox"
+                name='toggleAutoPip'
                 className="toggle toggle-primary"
                 checked={autoPip}
                 onChange={(e) => setAutoPip(e.target.checked)}
