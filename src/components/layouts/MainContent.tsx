@@ -1,4 +1,4 @@
-import { PipTimerLayout } from '../PipTimerLayout';
+import { PipTimerLayout } from '../../features/pipTimer';
 
 export function MainContent() {
   return (

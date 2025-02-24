@@ -2,11 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { usePictureInPicture } from '@/hooks/usePictureInPicture';
-import {
-  AutoPipStartToggle,
-  PipTimerView,
-  OpenPipButton,
-} from '@/features/pipTimer';
+import { AutoPipStartToggle } from './components/AutoPipStartToggle';
+import { PipTimerView } from './components/PipTimerView';
+import { OpenPipButton } from './components/OpenPipButton';
 
 export function PipTimerLayout() {
   const [autoPip, setAutoPip] = useState(false);

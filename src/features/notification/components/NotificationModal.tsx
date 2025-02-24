@@ -1,4 +1,4 @@
-import { Modal } from '@/components/elements/Modal';
+import { Modal } from '@/components/elements';
 
 export function NotificationModal() {
   const releaseNotes = [

@@ -1,10 +1,10 @@
-import { handleOpenModal } from '@/components/elements/Modal';
+import { Modal } from '@/components/elements';
 
 function NotificationButton() {
   return (
     <button
       className="btn btn-ghost btn-circle"
-      onClick={() => handleOpenModal('notification-modal')}
+      onClick={() => Modal.handleOpenModal('notification-modal')}
     >
       <div className="indicator">
         <NotificationIcon />
