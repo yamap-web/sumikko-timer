@@ -10,18 +10,9 @@ export function usePictureInPicture({
   containerRef,
 }: UsePictureInPictureProps) {
   const [pipWindow, setPipWindow] = useState<Window | null>(null);
-  const isSupported =
-    typeof window !== 'undefined' && 'documentPictureInPicture' in window;
-
-  // TODO: 環境変数に設定して管理する
-  const browserCompatibility = 'Chrome 116~, Edge 116~, Opera 102~';
-  const pointInTime = '2025年2月';
-
-  const alertMessage = `このブラウザは Document Picture in Picture API をサポートしていません。${browserCompatibility}をお試しください。（${pointInTime}時点）`;
 
   async function handleOpenPipWindow() {
-    if (!isSupported) {
-      alert(alertMessage);
+    if (!isPipSupported()) {
       return;
     }
 
@@ -71,7 +62,13 @@ export function usePictureInPicture({
     setPipWindow(null);
   }
 
-  return { isSupported, handleOpenPipWindow, handleClosePipWindow, pipWindow };
+  return { handleOpenPipWindow, handleClosePipWindow, pipWindow };
+}
+
+export function isPipSupported() {
+  const supportedFlg =
+    typeof window !== 'undefined' && 'documentPictureInPicture' in window;
+  return supportedFlg;
 }
 
 type PictureInPictureWindowProps = {

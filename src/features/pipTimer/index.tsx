@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { usePictureInPicture } from '@/hooks/usePictureInPicture';
+import { usePictureInPicture, isPipSupported } from '@/hooks/usePictureInPicture';
 import { AutoPipStartToggle } from './components/AutoPipStartToggle';
 import { PipTimerView } from './components/PipTimerView';
 import { OpenPipButton } from './components/OpenPipButton';
@@ -9,14 +9,13 @@ export default function PipTimerLayout() {
   const [autoPip, setAutoPip] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const { isSupported, handleOpenPipWindow, handleClosePipWindow, pipWindow } =
+  const { handleOpenPipWindow, handleClosePipWindow, pipWindow } =
     usePictureInPicture({ containerRef });
 
   useEffect(() => {
-    if (isSupported) {
+    if (isPipSupported()) {
       setAutoPip(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

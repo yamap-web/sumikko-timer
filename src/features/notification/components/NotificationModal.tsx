@@ -1,6 +1,6 @@
 import { Modal } from '@/components/elements';
 
-export function NotificationModal() {
+export default function NotificationModal() {
   const releaseNotes = [
     {
       id: 1,
@@ -31,5 +31,3 @@ export function NotificationModal() {
     </Modal>
   );
 }
-
-export default NotificationModal;

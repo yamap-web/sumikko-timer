@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Modal } from '@/components/elements';
 
-function NotificationButton() {
+export default function NotificationButton() {
   const [checked, setChecked] = useState(false);
   function onModalOpen() {
     setChecked(true);
@@ -41,5 +41,3 @@ function NotificationIcon() {
     </svg>
   );
 }
-
-export default NotificationButton;
