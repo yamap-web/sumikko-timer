@@ -16,9 +16,9 @@ export function TimerCard({
   addTime,
 }: TimerCardProps) {
   const frequentlyUsedTimers = [
-    { seconds: 10 * 60, text: '+10:00' },
-    { seconds: 5 * 60, text: '+5:00' },
-    { seconds: 3 * 60, text: '+3:00' },
+    { seconds: 600, text: '+10:00' },
+    { seconds: 300, text: '+5:00' },
+    { seconds: 180, text: '+3:00' },
     { seconds: 60, text: '+1:00' },
     { seconds: 30, text: '+0:30' },
   ];
@@ -40,7 +40,7 @@ export function TimerCard({
       <div className="mt-2 space-x-2 w-full grid grid-cols-2">
         <button
           className={`btn btn-primary ${
-            (isRunning || isNoTimeLeft) && 'btn-outline'
+            (isRunning || isNoTimeLeft) && 'btn-outline border-4'
           } ${isNoTimeLeft && 'btn-disabled'}`}
           disabled={isNoTimeLeft}
           onClick={() => (isRunning ? onStop() : onStart())}
@@ -49,7 +49,7 @@ export function TimerCard({
           {isRunning ? 'ストップ' : 'スタート'}
         </button>
         <button
-          className={`btn btn-outline btn-secondary ${
+          className={`btn btn-outline btn-secondary border-4 ${
             isNoTimeLeft && 'btn-disabled'
           }`}
           disabled={isNoTimeLeft}
@@ -62,8 +62,8 @@ export function TimerCard({
       <div className="mt-5 space-x-2 grid grid-cols-5 w-full">
         {frequentlyUsedTimers.map(({ seconds, text }) => (
           <button
-            key={text}
-            className={`btn btn-outline btn-sm ${
+            key={seconds}
+            className={`btn btn-outline btn-sm border-2 ${
               isFullTimeLeft && 'btn-disabled'
             }`}
             onClick={() => addTime(seconds)}
