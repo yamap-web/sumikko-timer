@@ -1,4 +1,4 @@
-import { PipTimerLayout } from '../../features/pipTimer';
+import PipTimer from '../../features/pipTimer';
 
 export function MainContent() {
   return (
@@ -7,7 +7,7 @@ export function MainContent() {
         <h1 className="font-bold text-4xl sm:text-5xl mb-6 text-center">
           すみっこタイマー
         </h1>
-        <PipTimerLayout />
+        <PipTimer />
       </div>
     </main>
   );

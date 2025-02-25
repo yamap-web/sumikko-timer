@@ -1,6 +1,4 @@
-'use client';
-
-import * as Notification from '@/features/notification';
+import Notification from '@/features/notification';
 
 export function Header() {
   return (

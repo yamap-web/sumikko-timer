@@ -1,12 +1,11 @@
 'use client';
-
 import { useState, useEffect, useRef } from 'react';
 import { usePictureInPicture } from '@/hooks/usePictureInPicture';
 import { AutoPipStartToggle } from './components/AutoPipStartToggle';
 import { PipTimerView } from './components/PipTimerView';
 import { OpenPipButton } from './components/OpenPipButton';
 
-export function PipTimerLayout() {
+export default function PipTimerLayout() {
   const [autoPip, setAutoPip] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
