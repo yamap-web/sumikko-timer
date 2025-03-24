@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Modal } from '@/components/elements';
 
 export default function NotificationButton() {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(true);
   function onModalOpen() {
     setChecked(true);
     Modal.handleOpenModal('notification-modal');
