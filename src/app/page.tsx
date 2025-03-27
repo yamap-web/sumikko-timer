@@ -3,7 +3,7 @@ import IsSupportedPipAlert from '@/features/isSupportedPipAlert';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[auto,1fr,auto] min-h-screen">
+    <div className="h-dvh flex flex-col">
       <IsSupportedPipAlert />
       <Header />
       <MainContent />

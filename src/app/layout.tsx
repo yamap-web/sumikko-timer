@@ -50,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" data-theme="synthwave">
+    <html lang="ja" data-theme="dracula">
       <body
         className={`${roboto.variable} ${kiwiMaru.variable} font-kiwiMaru antialiased`}
       >

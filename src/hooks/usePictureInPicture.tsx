@@ -55,6 +55,8 @@ export function usePictureInPicture({
     newPipWindow.document.documentElement.className =
       document.documentElement.className;
     newPipWindow.document.body.className = document.body.className;
+    newPipWindow.document.documentElement.dataset.theme =
+      document.documentElement.dataset.theme;
   }
 
   function handleClosePipWindow() {

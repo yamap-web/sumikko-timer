@@ -59,7 +59,7 @@ export function TimerCard({
           ０にもどす
         </button>
       </div>
-      <div className="mt-5 space-x-2 grid grid-cols-5 w-full">
+      <div className="mt-5 gap-x-2 grid grid-cols-5 w-full">
         {frequentlyUsedTimers.map(({ seconds, text }) => (
           <button
             key={seconds}

@@ -12,8 +12,8 @@ export function AutoPipStartToggle({
   return (
     <div className="hidden sm:flex flex-col items-center justify-center border border-dashed rounded-lg pt-1 pb-3 mb-6">
       <div className="form-control w-80">
-        <label className="label cursor-pointer">
-          <span className="label-text text-base font-bold">
+        <label className="label cursor-pointer justify-between py-2 px-1 w-full">
+          <span className="label-text text-white text-base font-bold">
             自動すみっこスタート機能
           </span>
           {autoPip ? (
