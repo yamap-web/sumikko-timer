@@ -8,6 +8,12 @@ export default function NotificationModal() {
       description:
         'タイマーのスタートと同時にすみっこに移動してくれるようになります！',
     },
+    {
+      id: 2,
+      title: '「すみっこタイマー拡大機能」をリリースしました',
+      description:
+        'すみっこに移動したタイマーの幅を広げると、表示を拡大できるようになりました！',
+    },
   ];
 
   const isNoReleaseNotes = releaseNotes.length === 0;

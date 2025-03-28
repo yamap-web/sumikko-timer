@@ -27,10 +27,7 @@ export function PipTimerView({
   }
 
   return (
-    <div
-      className="rounded-lg sm:h-72 sm:w-[400px] sm:border-4 sm:shadow-lg"
-      ref={containerRef}
-    >
+    <div ref={containerRef}>
       <PictureInPictureWindow pipWindow={pipWindow}>
         <TimerCard
           timeLeft={timeLeft}

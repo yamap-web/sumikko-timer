@@ -4,7 +4,7 @@ export function Header() {
   return (
     <header className="navbar border-b-4 border-white/20 px-4">
       <div className="navbar-start">
-        <p className="hidden sm:block text-lg">
+        <p className="hidden sm:block text-xs md:text-sm lg:text-lg">
           画面のすみっこで時間を計ってくれる優しい子です。
         </p>
       </div>

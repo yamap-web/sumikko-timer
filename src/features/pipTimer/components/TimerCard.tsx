@@ -36,7 +36,7 @@ export function TimerCard({
 
   return (
     <div className="font-roboto grid justify-items-center px-6 py-5">
-      <p className="text-9xl">{formattedTimeLeftText}</p>
+      <p className="text-9xl lg:text-[200px]/50 @md:text-[160px] @lg:text-[190px] @xl:text-[220px] @2xl:text-[240px] @3xl:text-[260px]">{formattedTimeLeftText}</p>
       <div className="mt-2 space-x-2 w-full grid grid-cols-2">
         <button
           className={`btn btn-primary ${

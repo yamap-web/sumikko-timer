@@ -10,7 +10,7 @@ export function AutoPipStartToggle({
   setAutoPip,
 }: AutoPipStartToggleProps) {
   return (
-    <div className="hidden sm:flex flex-col items-center justify-center border border-dashed rounded-lg pt-1 pb-3 mb-6">
+    <div className="hidden sm:flex flex-col items-center justify-center border border-dashed rounded-lg pt-1 pb-3 mb-2">
       <div className="form-control w-80">
         <label className="label cursor-pointer justify-between py-2 px-1 w-full">
           <span className="label-text text-base-content text-base font-bold">

@@ -1,6 +1,9 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { usePictureInPicture, isPipSupported } from '@/hooks/usePictureInPicture';
+import {
+  usePictureInPicture,
+  isPipSupported,
+} from '@/hooks/usePictureInPicture';
 import { AutoPipStartToggle } from './components/AutoPipStartToggle';
 import { PipTimerView } from './components/PipTimerView';
 import { OpenPipButton } from './components/OpenPipButton';
@@ -10,7 +13,7 @@ export default function PipTimerLayout() {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const { handleOpenPipWindow, handleClosePipWindow, pipWindow } =
-    usePictureInPicture({ containerRef });
+    usePictureInPicture({ containerRef, height: 280, width: 400 });
 
   useEffect(() => {
     if (isPipSupported()) {

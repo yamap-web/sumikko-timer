@@ -4,10 +4,14 @@ import { createPortal } from 'react-dom';
 
 type UsePictureInPictureProps = {
   containerRef: RefObject<HTMLDivElement | null>;
+  height?: number;
+  width?: number;
 };
 
 export function usePictureInPicture({
   containerRef,
+  height,
+  width,
 }: UsePictureInPictureProps) {
   const [pipWindow, setPipWindow] = useState<Window | null>(null);
 
@@ -18,9 +22,9 @@ export function usePictureInPicture({
 
     const newPipWindow = await window.documentPictureInPicture?.requestWindow({
       disallowReturnToOpener: false,
-      height: containerRef.current?.clientHeight,
+      height: height ? height : containerRef.current?.clientHeight,
       preferInitialWindowPlacement: true,
-      width: containerRef.current?.clientWidth,
+      width: width ? width : containerRef.current?.clientWidth,
     });
 
     if (!newPipWindow) return;
@@ -53,7 +57,7 @@ export function usePictureInPicture({
     });
 
     newPipWindow.document.documentElement.className =
-      document.documentElement.className;
+      document.documentElement.className + '@container';
     newPipWindow.document.body.className = document.body.className;
     newPipWindow.document.documentElement.dataset.theme =
       document.documentElement.dataset.theme;
